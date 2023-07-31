@@ -227,10 +227,12 @@ class Photoluminescence:
             S_i = self.frequencies[i] * q_i**2 / 2 * 1.0 / \
                 (1.0545718e-34 * 6.582119514e-16)
 
-            hbar = (1.0545718e-34 / 6.582119514e-16)
+            hbar = (1.0545718e-34 * 6.582119514e-16)
+            #self.frequencies[i] is already in eV unit
+            #1 kelvin = 0.00008617328149741 electron-volt
             if temp > 0.0:
-                number_occ_phonon_i = 1.0/(np.exp((hbar*self.frequencies[i])/\
-                    (constants.Boltzmann * temp)) - 1.0)
+                number_occ_phonon_i = 1.0/(np.exp((self.frequencies[i])/\
+                    (0.00008617328149741 * temp)) - 1.0)
             else:
                 number_occ_phonon_i = 0.0
             C_i =  number_occ_phonon_i*S_i   
