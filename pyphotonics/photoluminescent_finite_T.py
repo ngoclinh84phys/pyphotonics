@@ -227,7 +227,7 @@ class Photoluminescence:
             S_i = self.frequencies[i] * q_i**2 / 2 * 1.0 / \
                 (1.0545718e-34 * 6.582119514e-16)
 
-            hbar = (1.0545718e-34 * 6.582119514e-16)
+            #hbar = (1.0545718e-34 * 6.582119514e-16)
             #self.frequencies[i] is already in eV unit
             #1 kelvin = 0.00008617328149741 electron-volt
             if temp > 0.0:
