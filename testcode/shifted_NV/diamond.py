@@ -10,14 +10,16 @@ m[62] = 14.007 * 1.660539040e-27
 path = "./"
 path_phonopy = "phonopy/"
 p = Photoluminescence(path_phonopy,
-                        path + "CONTCAR_GS",
-                        path + "CONTCAR_ES",
+                        path + "MOD_CONTCAR_GS",
+                        path + "MOD_CONTCAR_ES",
                         189, "phonopy", m, 1000)
 
+#print("show", dir(p))
 
 print("Delta_R=", p.Delta_R)
 print("Delta_Q=", p.Delta_Q)
 print("HuangRhyes=", p.HuangRhyes)
+print("DebyeWaller=", np.exp(-p.HuangRhyes))
 
 plt.figure(figsize=(10, 10))
 plt.plot(p.S_omega)
